@@ -1,0 +1,50 @@
+from random import randrange
+
+# Function to get the user's weapon
+def get_user_weapon():
+    print("Choose your weapon:")
+    print("1 - Rock")
+    print("2 - Paper")
+    print("3 - Scissors")
+    choice = int(input("Enter your weapon choice (1-3): "))
+    return choice
+
+# Function to get the opponent's weapon
+def get_opponent_weapon():
+    opponent_choice = randrange(1, 4)  # 1 to 3 inclusive
+    return opponent_choice
+
+# Function to determine the winner
+def determine_winner(user, opponent):
+    if user == opponent:
+        print("It's a tie!")
+    elif user == 1 and opponent == 3:
+        print("You win! Rock beats Scissors")
+    elif user == 3 and opponent == 1:
+        print("Opponent wins! Rock beats Scissors")
+    elif user == 3 and opponent == 2:
+        print("You win! Scissors beats Paper")
+    elif user == 2 and opponent == 3:
+        print("Opponent wins! Scissors beats Paper")
+    elif user == 2 and opponent == 1:
+        print("You win! Paper beats Rock")
+    elif user == 1 and opponent == 2:
+        print("Opponent wins! Paper beats Rock")
+
+# Main function
+def main():
+    play = "y"
+    while play.lower() == "y":
+        user_weapon = get_user_weapon()
+        opponent_weapon = get_opponent_weapon()
+        print("You chose:", user_weapon)
+        print("Opponent chose:", opponent_weapon)
+        determine_winner(user_weapon, opponent_weapon)
+
+        play = input("Would you like to play again? (y/n): ")
+
+    print("Completed by, Miguel Gomez")
+
+# Call main using if __name__ guard
+if __name__ == "__main__":
+    main()
